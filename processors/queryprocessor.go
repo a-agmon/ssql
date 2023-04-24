@@ -5,7 +5,7 @@ import (
 	"regexp"
 )
 
-// declare the query struct that contains all parts of query
+// Query declare the query struct that contains all parts of query
 // which are entity, filter and select components
 type Query struct {
 	Entity string
