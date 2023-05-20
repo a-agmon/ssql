@@ -29,6 +29,9 @@ func (h *FiberHandler) Handle(c *fiber.Ctx) error {
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).SendString(err.Error())
 	}
-	c.SendString(response)
+	err = c.SendString(response)
+	if err != nil {
+		panic(err)
+	}
 	return c.SendStatus(200)
 }
