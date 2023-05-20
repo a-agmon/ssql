@@ -25,7 +25,7 @@ func main() {
 	// select id, product_code, acc, product_name, asset_type
 	// from parquet_scan('s3://*******/******.asset/*.parquet')
 
-	initQuery := "CREATE TABLE assets AS select id, product_code, acc, product_name, asset_type from read_parquet('s3://af-biz-dev/rds_replication/parquet/salesforce.asset/*.parquet')"
+	initQuery := "CREATE TABLE assets AS select id, product_code, acc, product_name, asset_type from read_parquet('s3://******.asset/*.parquet')"
 	// get the aws credentials from the environment variables
 	awsSessionKey := os.Getenv("AWS_ACCESS_KEY_ID")
 	awsSessionSecret := os.Getenv("AWS_SECRET_ACCESS_KEY")
