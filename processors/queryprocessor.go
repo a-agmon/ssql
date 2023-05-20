@@ -18,7 +18,7 @@ type QueryProcessor struct {
 }
 
 func NewQueryProcessor() *QueryProcessor {
-	r := regexp.MustCompile(`(?i)^([\w\.\-]+)\[select:((?:\w+,?\s*)+)]\[filter:((?:[\w="\.\-]+,?\s*)+)]$`)
+	r := regexp.MustCompile(`(?i)^([\w\.\-]+)\[select:((?:\w+,?\s*)+)]\[filter:((?:[\w="\.\-]+,?\s*|\*)+)]$`)
 	return &QueryProcessor{re: r}
 }
 

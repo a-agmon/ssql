@@ -1,6 +1,7 @@
 package drivers
 
 import (
+	"context"
 	"github.com/go-redis/redis/v8"
 )
 
@@ -21,6 +22,11 @@ func NewRedisDriver(addr, password string, db int) *RedisDriver {
 	}
 }
 
-func (d *RedisDriver) ExecuteQuery(entity string, filterFields string, selectFields string) (string, error) {
-	return "", nil
+func (rd *RedisDriver) ExecuteQuery(entity string, filterFields string, selectFields string) (string, error) {
+	ctx := context.Background()
+	value, err := rd.client.HGet(ctx, entity, filterFields).Result()
+	if err != nil {
+		return "", err
+	}
+	return value, nil
 }
